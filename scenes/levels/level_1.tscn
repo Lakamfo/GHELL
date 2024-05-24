@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/player/player_standart.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/textures/tree.png" type="Texture" id=2]
+[ext_resource path="res://scenes/interact_props/hook_object.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/interact_props/explosion.tscn" type="PackedScene" id=4]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_texture = ExtResource( 2 )
+uv1_scale = Vector3( 0.5, 0.5, 0.5 )
+uv1_triplanar = true
+
+[node name="Level_1" type="Spatial"]
+
+[node name="CSGBox" type="CSGCombiner" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
+material_override = SubResource( 1 )
+use_collision = true
+
+[node name="CSGBox" type="CSGBox" parent="CSGBox"]
+width = 20.0
+depth = 20.0
+
+[node name="player_standart" parent="CSGBox" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
+
+[node name="Spatial2" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.449027, 8.52939, -2.82175 )
+
+[node name="Spatial3" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.449027, 14.5294, 4.17825 )
+
+[node name="Spatial4" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.55097, 14.5294, 4.17825 )
+
+[node name="Spatial5" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.55097, 21.5294, 1.17825 )
+
+[node name="Spatial6" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.55097, 27.5294, -4.82175 )
+
+[node name="Spatial7" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.44903, 34.5294, -4.82175 )
+
+[node name="explosion" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
